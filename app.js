@@ -15,7 +15,7 @@ const app = express();
 mongoose.connect('mongodb://localhost:27017/moviesDB');
 
 const corsOptions = {
-  origin: ['http://somedomain.com', 'https://somedomain.com', 'localhost:3001'],
+  origin: ['http://ales.movies.nomoredomains.icu/', 'https://ales.movies.nomoredomains.icu/', 'localhost:3001'],
   optionsSuccessStatus: 200,
 };
 

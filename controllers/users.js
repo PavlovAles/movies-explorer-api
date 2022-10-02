@@ -66,9 +66,12 @@ module.exports.patchUser = (req, res, next) => {
   const { name, email } = req.body;
 
   User.findByIdAndUpdate(req.user._id, { name, email }, { new: true, runValidators: true })
-    .orFail(new NotFoundError('Пользователь с таким id не найден'))
+    .orFail(new NotFoundError('Пользователь не найден'))
     .then((user) => res.send({ data: user }))
     .catch((err) => {
+      if (err.code === 11000) {
+        next(new ConflictError('Пользователь с таким email уже зарегистрирован'));
+      }
       if (err.name === 'ValidationError') {
         next(new BadRequestError(err.message));
       } else {

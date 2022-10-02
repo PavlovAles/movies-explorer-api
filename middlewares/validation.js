@@ -35,7 +35,7 @@ const reqURL = Joi.string().required().regex(regexURL).message('Передана
 
 module.exports.movieValidation = celebrate({
   body: Joi.object().keys({
-    movieId: reqString,
+    movieId: reqNumber,
     nameRU: reqString,
     nameEN: reqString,
     country: reqString,

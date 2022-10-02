@@ -6,7 +6,7 @@ const reqNumber = { type: Number, required: true };
 const reqURL = { type: String, required: true, validate: [isURL] };
 
 const movieSchema = new mongoose.Schema({
-  movieId: reqString,
+  movieId: reqNumber,
   nameRU: reqString,
   nameEN: reqString,
   country: reqString,

@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { errors } = require('celebrate');
+const { limiter } = require('./middlewares/limiter');
 const router = require('./routes/index');
 const { handleError } = require('./middlewares/handleError');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
@@ -27,6 +28,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
+
+app.use(limiter);
 
 app.use(helmet());
 

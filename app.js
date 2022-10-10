@@ -10,15 +10,19 @@ const { limiter } = require('./middlewares/limiter');
 const router = require('./routes/index');
 const { handleError } = require('./middlewares/handleError');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
+const { CORS_ORIGINS } = require('./utils/constants');
 
-const { PORT = 3000 } = process.env;
+const {
+  PORT = 3000,
+  MONGO_ADDRESS = 'mongodb://localhost:27017/moviesDB',
+} = process.env;
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/moviesDB');
+mongoose.connect(MONGO_ADDRESS);
 
 const corsOptions = {
-  origin: ['http://ales.movies.nomoredomains.icu/', 'https://ales.movies.nomoredomains.icu/', 'localhost:3001'],
+  origin: CORS_ORIGINS,
   optionsSuccessStatus: 200,
 };
 

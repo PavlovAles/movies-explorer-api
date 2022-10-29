@@ -1,5 +1,15 @@
 # movies-explorer-api
 
-API: https://api.ales.movies.nomoredomains.icu/
+Репозиторий backend части проекта movies-explorer
 
-IP: 84.252.130.166
+Frontend проекта можно найти в [этом репозитории](https://github.com/PavlovAles/movies-explorer-frontend)
+
+## Стек
+- Node.js
+- express
+- MongoDB
+- Joi validation
+
+Здесь можно найти:
+- регистрацию пользователей
+- сохранение любимых фильмов
